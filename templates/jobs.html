@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Google Job Recommendation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/g_icon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<style>
+	/* body{
+		background-image: url('https://img.wallpapersafari.com/tablet/1536/2048/39/19/xMfWmD.png');
+	} */
+</style>
+<body>
+	
+	<div class="limiter">
+
+		{% for each, min_req, pref_req, resp, job_loc in data%}
+		<div class="container-table100" style="padding-top: 10px;">
+			<div class="wrap-table100">
+				<div class="table">
+					<div class="row header">
+						<div class="cell">
+							{% if each.split(',')|length == 1 %}
+								<p><strong>{{ each }}</strong></p>
+								<p>{{ job_cat }}</p>
+							{% elif each.split(',')|length >= 2 %}
+								<p><strong>{{ each.split(',')[0] }}</strong></p>
+								<p>{{ each.split(',')[1] }}, {{ job_cat }}</p>
+							{% endif %}
+							<p>{{ job_loc }}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="cell" style="padding-right: 40px;">
+							<p><strong>Responsibility</strong></p>
+							<p>{{ resp }}</p>
+							<br>
+							<p><strong>Minimum Requirement</strong></p>
+							<p>{{ min_req }}</p>
+							<br>
+							<p><strong>Preferred Requirement</strong></p>
+							<p>{{ pref_req }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		<div class="container-table100" style="padding-top: 10px;">
+			<form action="http://localhost:5000/">
+				<input  type="submit" class='btn btn-primary' value="< Back">
+			</form>
+		</div>
+		<!-- <form action="http://localhost:5000/">
+			<input  type="submit" class='btn btn-primary' value="< Back">
+		</form> -->
+		
+	</div>
+
+<!--===============================================================================================-->	
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
