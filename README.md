@@ -13,10 +13,10 @@ Several Machine Learning are used and compared to evalueate the model. From mode
 The Component for this web app can be summarized as below:
 
 1. **Homepage**
-![Image](./readme/Homepage.PNG)
+[Image](./readme/Homepage.PNG)
 
 2. **Job Recommendation Page**
-![Image](../readme/recommendation-page.PNG)
+[Image](../readme/recommendation-page.PNG)
 
 That is all for this final project, feel free to give me suggestion to my email and let me know if you have any idea to make my project better
 
