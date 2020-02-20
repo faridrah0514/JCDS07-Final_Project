@@ -25,8 +25,8 @@ def func_02():
         matrix = count_vectorize.fit_transform(analyze)
         cos_similarity = cosine_similarity(matrix)
         job_list = sorted(list(enumerate(cos_similarity[0])), key=lambda x:x[1], reverse=True)
-        print(job_list)
-        print(job_list[1][1])
+        # print(job_list)
+        # print(job_list[1][1])
         if job_list[1][1] <= 0.1:
             return "no job match for you"
         else:
